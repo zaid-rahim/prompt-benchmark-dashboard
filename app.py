@@ -163,8 +163,8 @@ MAX_RUNS_PER_SESSION = 3
 MAX_TASK_LENGTH = 2000
 
 GROQ_CHAT_COMPLETIONS_URL = "https://api.groq.com/openai/v1/chat/completions"
-GROQ_JUDGE_MODEL = "llama-3.3-70b-versatile"
-GROQ_BENCHMARK_MODEL = "llama-3.1-8b-instant"
+GROQ_JUDGE_MODEL   = "openai/gpt-oss-120b"    # was: llama-3.3-70b-versatile
+GROQ_BENCHMARK_MODEL = "openai/gpt-oss-20b"   # was: llama-3.1-8b-instant deprecated
 
 
 if "benchmark_runs" not in st.session_state:
