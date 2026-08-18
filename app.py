@@ -306,7 +306,7 @@ def _extract_openai_text(data: dict) -> str:
 
 def call_gemini(system: str, user: str, api_key: str) -> str:
     """Call Gemini Flash via REST API."""
-    url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.7-flash:generateContent"
+    url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent"
     payload = {
         "system_instruction": {"parts": [{"text": system}]},
         "contents": [{"role": "user", "parts": [{"text": user}]}],
@@ -473,10 +473,9 @@ def call_groq_judge(system: str, user: str, api_key: str) -> str:
             {"role": "user", "content": user},
         ],
         "temperature": 0,
-        "max_completion_tokens": 600,
+        "max_tokens": 600, 
         "response_format": {
-            "type": "json_schema",
-            "json_schema": JUDGE_JSON_SCHEMA,
+            "type": "json_object"
         },
     }
     try:
