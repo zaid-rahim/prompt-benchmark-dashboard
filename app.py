@@ -163,7 +163,7 @@ MAX_RUNS_PER_SESSION = 3
 MAX_TASK_LENGTH = 2000
 
 GROQ_CHAT_COMPLETIONS_URL = "https://api.groq.com/openai/v1/chat/completions"
-GROQ_JUDGE_MODEL = "openai/gpt-oss-120b"
+GROQ_JUDGE_MODEL = "llama-3.3-70b-versatile"
 GROQ_BENCHMARK_MODEL = "llama-3.1-8b-instant"
 
 
@@ -306,7 +306,7 @@ def _extract_openai_text(data: dict) -> str:
 
 def call_gemini(system: str, user: str, api_key: str) -> str:
     """Call Gemini Flash via REST API."""
-    url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent"
+    url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.7-flash:generateContent"
     payload = {
         "system_instruction": {"parts": [{"text": system}]},
         "contents": [{"role": "user", "parts": [{"text": user}]}],
