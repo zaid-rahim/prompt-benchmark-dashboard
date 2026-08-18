@@ -833,12 +833,10 @@ if run_clicked and ready:
                             latency = round(time.time() - t0, 1)
                             tokens = 0
                             error = str(e)
-                        except Exception:
-                            output = "API error — check your key or rate limits."
-                            latency = round(time.time() - t0, 1)
-                            tokens = 0
-                            error = output
-
+                        except Exception as e:
+                            output = _requests_error_message(e)  # don't hardcode the generic string
+                        except requests.HTTPError as exc:
+                            st.write(f"DEBUG: HTTP {exc.response.status_code} — {exc.response.text[:200]}")
                     # Show output
                     st.markdown(
                         f"<div class='output-box'>{output}</div>",
